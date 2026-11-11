@@ -21,7 +21,7 @@ $endereco = $_POST['endereco'];
 // =========================================================================
 
 //monta a consulta SQL (SELECT) para buscar o email
-$sql = "SELECT id FROM clientes WHERE email = '$email'";
+$sql = "SELECT id FROM funcionarios WHERE email = '$email'";
 
 //executa a consula no MyQSL
 $resultadoVerficar = mysqli_query ($conexao, $sqlVerificar);
