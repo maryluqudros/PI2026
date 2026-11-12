@@ -1,0 +1,421 @@
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F6F0; /* Fundo bege bem clarinho, neutro */
+    color: #333333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================
+   CONTAINER PRINCIPAL (CARD DE LOGIN)
+   ========================================= */
+.login-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 650px;
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    margin: 20px;
+}
+
+/* =========================================
+   PAINEL ESQUERDO (BRANDING - VERDE FOLHA)
+   ========================================= */
+.brand-panel {
+    width: 45%;
+    background-color: #2C4A3A; /* Verde Folha escurecido para elegância */
+    color: #FFFFFF;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Efeito sutil de gradiente usando o Verde Folha original */
+.brand-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(125, 170, 122, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    pointer-events: none;
+}
+
+.brand-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.badge-system {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(230, 123, 160, 0.15); /* Rosa Floral com transparência */
+    border: 1px solid rgba(230, 123, 160, 0.4);
+    color: #E67BA0; /* Rosa Floral */
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: fit-content;
+    margin-bottom: 40px;
+}
+
+.brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.brand-title em {
+    color: #E67BA0; /* Rosa Floral */
+    font-style: italic;
+}
+
+.brand-subtitle {
+    color: #B0C4B6;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.role-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: auto;
+}
+
+.role-list li {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.role-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(125, 170, 122, 0.2); /* Verde Folha transparente */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7DAA7A; /* Verde Folha claro */
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.role-text strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #FFFFFF;
+}
+
+.role-text span {
+    font-size: 0.85rem;
+    color: #9CA3AF;
+    line-height: 1.4;
+}
+
+.brand-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #6B7280;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-footer span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* =========================================
+   PAINEL DIREITO (FORMULÁRIO)
+   ========================================= */
+.form-panel {
+    width: 55%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Abas */
+.tabs {
+    display: flex;
+    background-color: #F3F4F6;
+    border-radius: 12px;
+    padding: 6px;
+    margin-bottom: 40px;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tab.active {
+    background-color: #FFFFFF;
+    color: #2C4A3A; /* Verde Folha escuro */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Conteúdo das Abas */
+.tab-content {
+    display: none;
+    flex-grow: 1;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2C4A3A; /* Verde Folha escuro */
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    color: #6B7280;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.required {
+    color: #D9445A; /* Vermelho Rosado da paleta */
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgot-link {
+    font-size: 0.8rem;
+    color: #E67BA0; /* Rosa Floral */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #9CA3AF;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
+    border: 1px solid #D1D5DB;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+    transition: all 0.3s;
+    background-color: #F9FAFB;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #E67BA0; /* Rosa Floral */
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(230, 123, 160, 0.15);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    cursor: pointer;
+}
+
+/* Rádio Buttons (Unidade) */
+.unidade-group {
+    border: none;
+    margin-bottom: 25px;
+}
+
+.unidade-group legend {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+.radio-options {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid #D1D5DB;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    background-color: #F9FAFB;
+}
+
+.radio-label input {
+    display: none;
+}
+
+.custom-radio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #9CA3AF;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.radio-label.active {
+    border-color: #E67BA0; /* Rosa Floral */
+    background-color: rgba(230, 123, 160, 0.05);
+}
+
+.radio-label.active .custom-radio {
+    border-color: #E67BA0;
+}
+
+.radio-label.active .custom-radio::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px; height: 10px;
+    background-color: #E67BA0;
+    border-radius: 50%;
+}
+
+/* Botão Submit */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #E67BA0; /* Rosa Floral Principal */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #d1668a; /* Rosa mais escuro no hover */
+}
+
+/* Rodapé do Form */
+.form-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6B7280;
+    padding-top: 20px;
+    border-top: 1px solid #E5E7EB;
+}
+
+.footer-link {
+    color: #2C4A3A; /* Verde Folha escuro */
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Alertas de Erro (PHP) */
+.mensagem.erro, .mensagem-erro {
+    background-color: rgba(217, 68, 90, 0.1);
+    color: #D9445A;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(217, 68, 90, 0.3);
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    text-align: center;
+}
